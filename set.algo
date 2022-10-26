@@ -1,0 +1,29 @@
+ALGORITHM checkpoint_algo2
+VAR
+set1,set2 :ARRAY_OF INTEGER[50]
+nb,i,j:INTEGER
+valid:BOOLEAN
+BEGIN
+ FOR i FROM 0 TO set1.lenght-1 STEP 1  DO
+ valid:=false
+    FOR j FROM 0 TO set2.lenght-1 STEP 1  DO
+       if (set1[i]<>set2[j])then 
+       valid:=true
+       break;
+       end if
+    END_FOR
+    if(vaild=false)then
+    nb:=nb+set1[i]
+ END_FOR
+ FOR j FROM 0 TO set2.lenght-1 STEP 1  DO
+ valid:=false
+    FOR i FROM 0 TO set1.lenght-1 STEP 1  DO
+        if (set2[j]<>set1[i])then 
+       valid:=true
+       break;
+       end if
+    END_FOR
+    if(vaild=false)then
+    nb:=nb+set2[j]
+ END_FOR
+END.

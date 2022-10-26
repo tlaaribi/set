@@ -1,0 +1,29 @@
+ALGORITHM checkpoint_algo2
+VAR
+set1,set2 :ARRAY_OF INTEGER[50]
+count,sum:INTEGER
+htab:HASH_TABLE<INTEGER,INTEGER>
+BEGIN
+FOR i FROM 0 TO set1.lenght-1 STEP 1  DO
+   if (htab.lookup(set1[i])=true)
+      count:=htab.get(set1[i])
+      htab.insert(set1[i],count+1)
+   else 
+      htab.insert(set1[i],1)
+   end_if
+END_FOR
+FOR j FROM 0 TO set2.lenght-1 STEP 1  DO
+   if (htab.lookup(set2[j])=true)
+      count:=htab.get(set2[j])
+      htab.insert(set2[j],count+1)
+   else 
+      htab.insert(set2[j],1)
+   end_if  
+END_FOR
+tab_keys:=htab.getKeys
+FOR j FROM 0 TO tab_keys.lenght-1 STEP 1  DO
+if htab.get(tab_keys[j]=1)then
+   sum:=sum+tab_keys[j]
+end_if
+END_FOR
+END.
